@@ -2,23 +2,23 @@
 
 [ext_resource path="" type="Script" id=1]
 
-[node name="fly_cam" type="Spatial"]
+[node name="fly_cam" type="Node3D"]
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+_import_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 script = ExtResource( 1 )
 
-[node name="gimbal" type="Spatial" parent="."]
+[node name="gimbal" type="Node3D" parent="."]
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+_import_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="innergimal" type="Spatial" parent="gimbal"]
+[node name="innergimal" type="Node3D" parent="gimbal"]
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+_import_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="cam" type="Camera" parent="gimbal/innergimal"]
+[node name="cam" type="Camera3D" parent="gimbal/innergimal"]
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+_import_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 projection = 0
 fov = 60.0
 near = 0.1

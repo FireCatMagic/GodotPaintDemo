@@ -2,12 +2,13 @@
 
 importer="image"
 type="Image"
-path="res://.import/tex.png-10d3a990b41350f0a871e8ec6d1daf61.image"
+uid="uid://bdvqkyygrrt14"
+path="res://.godot/imported/tex.png-10d3a990b41350f0a871e8ec6d1daf61.image"
 
 [deps]
 
 source_file="res://tex.png"
-dest_files=[ "res://.import/tex.png-10d3a990b41350f0a871e8ec6d1daf61.image" ]
+dest_files=["res://.godot/imported/tex.png-10d3a990b41350f0a871e8ec6d1daf61.image"]
 
 [params]
 

@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 
 var view_sensitivity = 0.035
@@ -20,19 +20,20 @@ func _input(ie):
 		var sensitivity = view_sensitivity;
 		set_body_rotation(pitch - ie.relative.y * sensitivity, body - ie.relative.x * sensitivity);  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
 
-func _physics_process(delta):  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
+func _physics_process(delta: float) -> void:  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
 	if Input.is_mouse_button_pressed(1):
-		var transform = get_viewport().get_camera().get_global_transform();
-		var result = get_world().get_direct_space_state().intersect_ray(transform.origin, transform.xform(Vector3(0,0,-1*10)), [self]);
-		if !result.empty():
+		var transform = get_viewport().get_camera_3d().get_global_transform();
+		var ray: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(transform.origin, transform * (Vector3(0,0,-100)))
+		var result = get_world_3d().get_direct_space_state().intersect_ray(ray);
+		if !result.is_empty():
 			get_node("/root/world").paint_uv(result["position"], result["normal"], Color("#ffff00"))
 
 
 func set_body_rotation(npitch, nyaw):  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
 	body = fmod(nyaw, 360)
 	pitch = max(min(npitch, 90), -90)
-	get_node("gimbal").set_rotation(Vector3(0, deg2rad(body), 0))
-	get_node("gimbal/innergimal").set_rotation(Vector3(deg2rad(pitch), 0, 0))
+	get_node("gimbal").set_rotation(Vector3(0, deg_to_rad(body), 0))
+	get_node("gimbal/innergimal").set_rotation(Vector3(deg_to_rad(pitch), 0, 0))
 	
 func _process(delta):
 	var aim = get_node("gimbal/innergimal").get_global_transform().basis;
@@ -50,4 +51,3 @@ func _process(delta):
 	
 	direction = direction.normalized()*speed;
 	translate(direction)
-

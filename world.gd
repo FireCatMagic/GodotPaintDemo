@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var mesh: Mesh
 var meshtool: MeshDataTool
@@ -74,12 +74,12 @@ func paint_uv(point: Vector3, normal: Vector3, color: Color):
 	var uv = get_uv_coords(point, normal)
 	if uv == null:
 		return
-	var rgb: Texture = mesh.surface_get_material(0).albedo_texture  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
+	var rgb: Texture2D = mesh.surface_get_material(0).albedo_texture  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
 	
 	uv *= rgb.get_size()
 	
-	var data: Image = rgb.get_data()
+	var data: Image = rgb.get_image()
 	#data.put_pixel(uv.x, uv.y, color)
 	data.blend_rect(brush, Rect2(Vector2.ZERO, data.get_size()), Vector2(uv.x - brush.get_width()/2, uv.y - brush.get_height()/2))
-	rgb.set_data(data)
+	rgb = ImageTexture.create_from_image(data)
 	mesh.surface_get_material(0).albedo_texture = rgb  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review

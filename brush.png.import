@@ -2,12 +2,13 @@
 
 importer="image"
 type="Image"
-path="res://.import/brush.png-a97626a40f24e0d8d908084fdef855df.image"
+uid="uid://bin7rsf32ohxd"
+path="res://.godot/imported/brush.png-a97626a40f24e0d8d908084fdef855df.image"
 
 [deps]
 
 source_file="res://brush.png"
-dest_files=[ "res://.import/brush.png-a97626a40f24e0d8d908084fdef855df.image" ]
+dest_files=["res://.godot/imported/brush.png-a97626a40f24e0d8d908084fdef855df.image"]
 
 [params]
 
